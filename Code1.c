@@ -28,9 +28,9 @@ main()
 	  int k;
 	  for(k=0;k<4;k++)
 	   {
-	      if(tmr>=arrival_time[k] && burst[k]!=(-1)) 
+	      if(tm>=arrival_time[k] && burst[k]!=(-1)) 
 		{
-		  priority[k]=1+((tmr-arrival_time[k])/burst[k]);
+		  priority[k]=1+((tm-arrival_time[k])/burst[k]);
 		}
 	   }
 	  int p,q;
@@ -45,7 +45,7 @@ main()
 			priority[q+1]=t1;
 			int t2=arrived_process[q];
 			arrived_process[q]=arrived_process[q+1];
-			process_arrived[q+1]=t2;
+		        arrived_process[q+1]=t2;
 		      }
 		  else 
 		      if(priority[q]==priority[q+1]  && arrived_process[q]!=0 && arrived_process[q+1]!=0)
@@ -78,7 +78,7 @@ main()
 			if(bt==0)
 			{
 				printf("process %d completed\n",y-1);
-				complete[y-1]=tim;
+				complete[y-1]=tm;
 				i=i+1;
 				burst[y-1]=-1;
 				//priority[0]=0;
